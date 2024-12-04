@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.munkatarsak {
+    display: flex; /* Flexbox használata */
+    justify-content: center; /* Vízszintes középre igazítás */
+    align-items: center; /* Függőleges középre igazítás */
+    gap: 20px; /* Távolság az elemek között */
+    flex-wrap: wrap; /* Ha nem férnek el, sorokba törjenek */
+    padding: 20px; /* Szélek biztosítása */
+}
+.munkatars {
+    position: relative;     
+    width: 200px; /* Az elemek fix szélessége */
+    height: 300px; /* Az elemek fix magassága */
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden; /* Túlcsordulás elkerülése */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.munkatars img.kep,
+.munkatars .leiras {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Kép igazítása */
+    transition: opacity 0.3s ease;
+}
+
+.munkatars img.kep {
+    z-index: 1;
+    opacity: 1; /* Alapértelmezetten látható */
+}
+
+.munkatars .leiras {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0; /* Alapértelmezetten rejtett */
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.munkatars.active img.kep {
+    opacity: 0; /* A kép eltűnik */
+}
+
+.munkatars.active .leiras {
+    opacity: 1; /* A leírás megjelenik */
+}
